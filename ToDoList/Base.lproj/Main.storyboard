@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ARh-vL-jj3">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -28,7 +29,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f66-IJ-SIv">
-                                                    <rect key="frame" x="16" y="9" width="34" height="26"/>
+                                                    <rect key="frame" x="16" y="9" width="33" height="26"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="rectangle" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
@@ -135,14 +136,29 @@
                                                         <action selector="reminderSwitchChanged:" destination="ifv-Ng-Gp4" eventType="valueChanged" id="4HJ-fE-def"/>
                                                     </connections>
                                                 </switch>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="aZz-CR-IFw">
+                                                    <rect key="frame" x="122" y="0.0" width="182" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="182" id="ytd-E8-wGr"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="datePickerChanged:" destination="ifv-Ng-Gp4" eventType="valueChanged" id="tGm-Tc-1P5"/>
+                                                    </connections>
+                                                </datePicker>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12/12/12, 12:12:12PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JR8-bT-NND">
-                                                    <rect key="frame" x="123" y="11" width="181" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                    <rect key="frame" x="123" y="0.0" width="181" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="aZz-CR-IFw" secondAttribute="trailing" constant="16" id="IRi-KE-AV5"/>
+                                                <constraint firstItem="aZz-CR-IFw" firstAttribute="top" secondItem="fMQ-MC-tNW" secondAttribute="top" id="Sgn-1A-8UK"/>
+                                                <constraint firstAttribute="bottom" secondItem="aZz-CR-IFw" secondAttribute="bottom" id="xbC-B4-VA3"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="tDO-Fj-z5Z">
@@ -206,6 +222,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="compactDatePicker" destination="aZz-CR-IFw" id="HTD-wq-7To"/>
                         <outlet property="dateLabel" destination="JR8-bT-NND" id="qBQ-4E-fS3"/>
                         <outlet property="datePicker" destination="x7G-Rj-m6N" id="gWg-p9-7Pb"/>
                         <outlet property="nameField" destination="gsA-bM-S89" id="WaO-Eg-TTl"/>
